@@ -1,15 +1,15 @@
-#1. Variables y asignación
-#Crea un programa que represente los datos de una persona:
-#nombre
-#edad
-#ciudad
-#salario mensual
-#si está trabajando actualmente
-#Después, calcula:
-#Cuánto ganaría al año.
-#Qué salario tendría después de recibir un aumento del 7%.
-#Muestra todos los datos de forma ordenada.
-#Condición: no escribas directamente los resultados calculados; deben salir de operaciones con las variables
+'''Variables y asignación
+Crea un programa que represente los datos de una persona:
+nombre
+edad
+ciudad
+salario mensual
+si está trabajando actualmente
+Después, calcula:
+Cuánto ganaría al año.
+Qué salario tendría después de recibir un aumento del 7%.
+Muestra todos los datos de forma ordenada.
+Condición: no escribas directamente los resultados calculados; deben salir de operaciones con las variables'''
 def datos_persona():
     nombre_persona ='jeronimo'
     edad_persona =25
