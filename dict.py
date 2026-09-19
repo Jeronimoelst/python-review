@@ -21,38 +21,63 @@ Mostrar todos los datos finales.
 
 Piensa: ¿por qué aquí es más adecuado un diccionario que una lista?
 '''
-min_caracteres = 10
-maximo_caracteres = 50
+class usuarios:
+    def  __init__(self):
+        self._usuario = {
+             "nombre":  [],
+             "edad": [],
+             "email": [],
+             "activo": [],
+             "numero_de_compras": [],
+        }
+        
 
-def validar_caracteres():
-    while True:
-        nombre_usuario = input("Ingrese el nombre del usuario: ")
-        if min_caracteres <= len(nombre_usuario) <= maximo_caracteres:
-            return nombre_usuario
-        else:
-            print(f"El nombre debe tener entre {min_caracteres} y {maximo_caracteres} caracteres. Inténtalo de nuevo.")
+    def crear_usuario(self, nombre:str, edad:int, email:str, activo:bool, numero_de_compras:int):
+        if not isinstance(nombre, str):
+                raise ValueError("El nombre debe ser una cadena de texto.")
+        if not isinstance(edad, int):
+                raise ValueError("La edad debe ser un número entero.")
+        if edad >= 18:
+                raise ValueError("La edad debe ser mayor a 18.")
+        if not isinstance(email, str):
+                raise ValueError("El email debe ser una cadena de texto.")
+        if not isinstance(activo, bool):
+                raise ValueError("El estado de actividad debe ser un valor booleano.")
+        if not isinstance(numero_de_compras, int):
+                raise ValueError("El número de compras debe ser un número entero.")
+        if numero_de_compras >= 10:
+                raise ValueError("El número de compras debe ser mayor a 10.")
 
-def validar_edad():
-    while True:
-            edad_usuario = int(input('ingrese la edad del Usuario:'))
-            if edad_usuario >= 18 and edad_usuario <= 100:
-                return edad_usuario
-            else:
-               print("debe ser mayor de edad (18). Inténtalo de nuevo.")
+        self._usuario["nombre"].append(nombre)    
+        self._usuario["edad"].append(edad)
+        self._usuario["email"].append(email)
+        self._usuario["activo"].append(activo)
+        self._usuario["numero_de_compras"].append(numero_de_compras)
 
+        print(f"datos del usuario: {self._usuario}")
 
-def datos_usuario(nombre_usuario, edad_usuario, email_usuario, actividad_usuario, compras_usauario):
-    usuario = {
-        'nombre': nombre_usuario,
-        'edad': edad_usuario,
-        'email': email_usuario,
-        'activo': actividad_usuario,
-        'numero_de_compras': compras_usauario
-    }
-    return usuario
-input_nombre = validar_caracteres()
-input_edad = validar_edad()
-input_email = input("Ingrese el email del usuario: ")
-input_activo = input("¿El usuario está activo? (True/False): ").lower() == 'true'
-input_compras = int(input("Ingrese el número de compras del usuario: "))
-usuario = datos_usuario(input_nombre, input_edad, input_email, input_activo, input_compras)
+    def obtener_dict(self):
+        return self._usuario
+
+registro = usuarios()
+
+while True:
+    try:
+        nombre = input('introduce el nombre:').lower().strip()
+        edad = int(input('introduce edad: '))
+        email = input('introduce el email: ')
+        activo = input("¿El usuario está activo? (si/no): ").lower().strip() == "si"
+        numero_de_compras = int(input('introduce numero de compras: '))
+        registro.crear_usuario(
+            nombre= nombre,
+            edad= edad,
+            email= email,
+            activo=activo,
+            numero_de_compras= numero_de_compras
+        )
+
+        break
+
+    
+    except ValueError as e:
+            print(f"\n[Error de Datos] {e}. Inténtalo de nuevo.\n")
