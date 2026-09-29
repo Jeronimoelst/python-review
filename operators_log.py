@@ -23,3 +23,18 @@ administrador = False
 ¿Debería poder entrar?
 
 Aquí quiero que razones antes de escribir el código.'''
+
+autorizacion = input().lower() == "true"
+indentificacion = input().lower() == "true"
+administrador = input().lower() == "true"
+
+
+def pruebas(autorizacion, indentificacion, administrador):
+    return (autorizacion and indentificacion) or administrador
+
+
+resultado = pruebas(autorizacion, indentificacion, administrador)
+
+print(resultado)
+
+
