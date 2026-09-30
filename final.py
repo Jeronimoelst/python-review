@@ -57,3 +57,49 @@ Haz hoy:
 Los demás puedes utilizarlos como refuerzo.
 
 Y una regla importante: primero intenta resolverlos sin buscar la solución en Internet. Si te atascas, mándame tu código aunque esté incompleto. Te diré qué está bien, dónde está el error y qué concepto necesitas revisar, pero sin darte directamente la solución, para que realmente desarrolles el razonamiento.'''
+
+def usuario():
+    nombre = str(input('Escribe el nombre '))
+    edad = int(input('escribe la edad '))
+    email = input('Escribe tu email ')
+    rol = str(input('escribe tu rol '))
+    activo = input("Escribe tu estado (True/False): ").strip().lower() == "true"
+
+    roles_permitidos = ["admin", "tester", "developer"]
+
+
+    if edad >= 18 and activo and rol in roles_permitidos and email != "":
+        print("Usuario válido")
+    else:
+        print("Usuario no válido")
+
+    usuario_no_valido = 0
+
+    if edad < 18:
+        print("Menor de edad")
+        usuario_no_valido += 1
+
+    if email == "":
+        print("Falta el email")
+        usuario_no_valido += 1
+
+    if rol not in roles_permitidos:
+        print("Rol no permitido")
+        usuario_no_valido += 1
+
+    if not activo:
+        print("Usuario inactivo")
+        usuario_no_valido += 1
+    if usuario_no_valido == 0:
+        print("Usuario válido")
+    else:
+        print("Usuario no válido")
+    
+
+usuario()
+
+
+
+
+    
+
