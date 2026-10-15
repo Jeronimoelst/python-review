@@ -1,0 +1,6 @@
+Total de resultados: 12
+Porcentaje de pass: 58.33%
+Pass: 7
+Fail: 3
+Error: 1
+Skipped: 1
