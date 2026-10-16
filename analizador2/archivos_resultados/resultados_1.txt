@@ -1,0 +1,4 @@
+Tests passed: 3
+Tests failed: 1
+Total tests: 4
+Resultados: pass, pass, pass, fail
